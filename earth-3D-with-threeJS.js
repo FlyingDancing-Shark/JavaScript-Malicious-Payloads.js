@@ -93,8 +93,16 @@
 
       function createEarthMaterial() {
         	var earth_texture = THREE.ImageUtils.loadTexture("../assets/textures/planets/earthmap4k.jpg");
+	        var bumpMap = THREE.ImageUtils.loadTexture("../assets/textures/planets/earthbump4k.jpg");
+    		var specularMap = THREE.ImageUtils.loadTexture("../assets/textures/planets/earthspec4k.jpg");
+    		var normalMap = THREE.ImageUtils.loadTexture("../assets/textures/planets/earth_normalmap_flat4k.jpg");
         	var earth_material =  new THREE.MeshPhongMaterial();
         	earth_material.map = earth_texture;
+	        earthMaterial.specularMap = specularMap;
+    		earthMaterial.specular = new THREE.Color(0x262626);
+
+    		earthMaterial.normalMap = normalMap;
+    		earthMaterial.normalScale = new THREE.Vector2(0.5, 0.7);
         	return earth_material;
       }
 
