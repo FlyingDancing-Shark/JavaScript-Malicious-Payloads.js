@@ -51,6 +51,12 @@
       	EarthMesh.name = 'Earth';
       	scene.add(EarthMesh);
   
+	var overlayGeometry = new THREE.SphereGeometry(15, 60, 60);
+    	var overlayMaterial = createOverlayMaterial();
+    	var overlayMesh = new THREE.Mesh(overlayGeometry, overlayMaterial);
+    	overlayMesh.name= 'overlay';
+    	scene.add(overlayMesh);      
+	      
       	var cloudGeometry = new THREE.SphereGeometry(15.35, 60, 60);
       	var cloudMaterial = createCloudMaterial();
       	var cloudMesh = new THREE.Mesh(cloudGeometry, cloudMaterial);
@@ -106,6 +112,13 @@
         	return earth_material;
       }
 
+    function createOverlayMaterial() {
+	    var olMaterial = new THREE.MeshPhongMaterial();
+	    olMaterial.map = new THREE.Texture(addCanvas());
+	    olMaterial.transparent = true;
+	    olMaterial.opacity = 0.6;
+	    return olMaterial;
+    }
 
       function createCloudMaterial() {
         	var cloud_texture = THREE.ImageUtils.loadTexture("../assets/textures/planets/fair_clouds_4k.png");
