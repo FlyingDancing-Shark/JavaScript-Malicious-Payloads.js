@@ -13,7 +13,8 @@ THREE.CircleGeometry = function ( radius, segments, thetaStart, thetaLength ) {
      vertex.x = radius * Math.cos( segment );
      vertex.y = radius * Math.sin( segment );
      this.vertices.push( vertex );
-     uvs.push( new THREE.Vector2( ( vertex.x / radius + 1 ) / 2, ( vertex.y / radius + 1 ) / 2 ) );
+     uvs.push( new THREE.Vector2( ( vertex.x / radius + 1 ) / 2, 
+                                 ( vertex.y / radius + 1 ) / 2 ) );
    }
  
    var n = new THREE.Vector3( 0, 0, 1 );
